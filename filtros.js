@@ -30,6 +30,11 @@ function obterDadosFiltrados(){
     .getElementById("fSituacao")
     .value;
 
+const etiqueta =
+document
+.getElementById("fEtiqueta")
+.value;
+    
     return resultado.filter(item=>{
 
         return(
@@ -56,9 +61,21 @@ function obterDadosFiltrados(){
             &&
 
             (
-                !situacao ||
-                item.Situacao === situacao
-            )
+    !situacao ||
+    item.Situacao === situacao
+)
+
+&&
+
+(
+    !etiqueta ||
+
+    (item.SituacaoEtiqueta || "")
+    .toUpperCase()
+    .includes(
+        etiqueta.toUpperCase()
+    )
+)
 
         );
 
@@ -137,14 +154,16 @@ document.addEventListener(
     "DOMContentLoaded",
     ()=>{
 
+        
         const campos = [
 
-            "fLoja",
-            "fPedido",
-            "fProduto",
-            "fSituacao"
+    "fLoja",
+    "fPedido",
+    "fProduto",
+    "fSituacao",
+    "fEtiqueta"
 
-        ];
+];
 
         campos.forEach(id=>{
 
