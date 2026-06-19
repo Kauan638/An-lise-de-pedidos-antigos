@@ -76,11 +76,20 @@ async function processar(){
     ${resultado.length}`
 );
 
-Pedidos: ${pedidos.length}
-Masters: ${masters.length}
-Resultado: ${resultado.length}`
-        );
+console.log(
+    "Pedidos:",
+    pedidos.length
+);
 
+console.log(
+    "Masters:",
+    masters.length
+);
+
+console.log(
+    "Resultado:",
+    resultado.length
+);
     }catch(err){
 
         console.error(err);
