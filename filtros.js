@@ -75,19 +75,15 @@ function renderTabela(){
 
     const dados =
     obterDadosFiltrados();
-const limite = 1000;
 
-const dadosExibidos =
-dados.slice(0, limite);
-    
     const tbody =
     document.getElementById(
         "tbody"
     );
 
-    tbody.innerHTML = "";
+    let html = "";
 
-    dadosExibidos.forEach(item=>{
+    dados.slice(0,1000).forEach(item=>{
 
         let classe = "";
 
@@ -95,73 +91,41 @@ dados.slice(0, limite);
             item.Situacao ===
             "🔴 Sem Master"
         ){
-
-            classe =
-            "sem-master";
-
+            classe = "sem-master";
         }
 
         if(
             item.Situacao ===
             "🟠 Master Antiga"
         ){
-
-            classe =
-            "master-antiga";
-
+            classe = "master-antiga";
         }
 
         if(
             item.Situacao ===
             "🟢 Com Master"
         ){
-
-            classe =
-            "com-master";
-
+            classe = "com-master";
         }
 
-       let html = "";
+        html += `
 
         <tr class="${classe}">
-
-            <td>
-            ${item.Loja}
-            </td>
-
-            <td>
-            ${item.Pedido}
-            </td>
-
-            <td>
-            ${item.Produto}
-            </td>
-
-            <td>
-            ${item.Descricao}
-            </td>
-
-            <td>
-            ${item.Quantidade}
-            </td>
-
-            <td>
-            ${item.Master || "-"}
-            </td>
-
-            <td>
-            ${item.DiasMaster}
-            </td>
-
-            <td>
-            ${item.Situacao}
-            </td>
-
+            <td>${item.Loja}</td>
+            <td>${item.Pedido}</td>
+            <td>${item.Produto}</td>
+            <td>${item.Descricao}</td>
+            <td>${item.Quantidade}</td>
+            <td>${item.Master || "-"}</td>
+            <td>${item.DiasMaster}</td>
+            <td>${item.Situacao}</td>
         </tr>
 
         `;
 
     });
+
+    tbody.innerHTML = html;
 
 }
 
