@@ -30,10 +30,6 @@ function obterDadosFiltrados(){
     .getElementById("fSituacao")
     .value;
 
-const etiqueta =
-document
-.getElementById("fEtiqueta")
-?.value || "";
     
     return resultado.filter(item=>{
 
@@ -65,17 +61,6 @@ document
     item.Situacao === situacao
 )
 
-&&
-
-(
-    !etiqueta ||
-
-    (item.SituacaoEtiqueta || "")
-    .toUpperCase()
-    .includes(
-        etiqueta.toUpperCase()
-    )
-)
 
         );
 
@@ -161,7 +146,6 @@ document.addEventListener(
     "fPedido",
     "fProduto",
     "fSituacao",
-    "fEtiqueta"
 
 ];
 
