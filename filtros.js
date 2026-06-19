@@ -59,7 +59,35 @@ if(dataInicio || dataFim){
     const dataPedido =
     new Date(item.DataPedido);
 
-    let passouCarga = true;
+    if(dataInicio){
+
+        const inicio =
+        new Date(dataInicio);
+
+        if(dataPedido < inicio){
+            passouData = false;
+        }
+
+    }
+
+    if(dataFim){
+
+        const fim =
+        new Date(dataFim);
+
+        fim.setHours(
+            23,59,59,999
+        );
+
+        if(dataPedido > fim){
+            passouData = false;
+        }
+
+    }
+
+}
+
+let passouCarga = true;
 
 if(cargaInicio || cargaFim){
 
@@ -76,6 +104,23 @@ if(cargaInicio || cargaFim){
         }
 
     }
+
+    if(cargaFim){
+
+        const fim =
+        new Date(cargaFim);
+
+        fim.setHours(
+            23,59,59,999
+        );
+
+        if(dataCarga > fim){
+            passouCarga = false;
+        }
+
+    }
+
+}
 
     if(cargaFim){
 
