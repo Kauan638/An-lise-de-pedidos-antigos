@@ -33,7 +33,7 @@ function obterDadosFiltrados(){
 const etiqueta =
 document
 .getElementById("fEtiqueta")
-.value;
+?.value || "";
     
     return resultado.filter(item=>{
 
