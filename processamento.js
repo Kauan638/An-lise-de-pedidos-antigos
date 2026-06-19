@@ -204,41 +204,45 @@ etiquetas.forEach(e=>{
 let situacaoEtiqueta =
 "";
         
-        if(!master){
+   if(!master){
 
-            situacao =
-            "🔴 Sem Master";
-
-        }else{
-
-            diasMaster =
-            master.diasSeparacao;
-
-            codigoMaster =
-            master.master;
-
-if(codigoMaster){
-
-    situacaoEtiqueta =
-    mapaEtiquetasMaster.get(
-        codigoMaster
-    ) || "";
-
-}else{
+    situacao =
+    "🔴 Sem Master";
 
     situacaoEtiqueta =
     mapaEtiquetasProduto.get(
         p.produto
     ) || "";
 
-}
-            
-            statusMaster =
-            master.status;
+}else{
 
-            localizacao =
-            master.localizacao;
+    diasMaster =
+    master.diasSeparacao;
 
+    codigoMaster =
+    master.master;
+
+    if(codigoMaster){
+
+        situacaoEtiqueta =
+        mapaEtiquetasMaster.get(
+            codigoMaster
+        ) || "";
+
+    }else{
+
+        situacaoEtiqueta =
+        mapaEtiquetasProduto.get(
+            p.produto
+        ) || "";
+
+    }
+
+    statusMaster =
+    master.status;
+
+    localizacao =
+    master.localizacao;
             if(
                 diasMaster >= 15
             ){
