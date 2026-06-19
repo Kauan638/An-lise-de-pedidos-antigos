@@ -1,23 +1,265 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Master Cross Analyzer</title>
+
+<title>MASTER CROSS ANALYZER</title>
+
 <link rel="stylesheet" href="css/style.css">
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
 </head>
+
 <body>
-<h1>MASTER CROSS ANALYZER</h1>
-<p>Inteligência Logística PCP</p>
 
-<input type="file" id="arquivoPedidos">
-<input type="file" id="arquivoMaster">
-<button onclick="processar()">Processar</button>
+<header class="topo">
 
-<div id="kpis"></div>
+<div>
+
+<h1>📦 MASTER CROSS ANALYZER</h1>
+
+<p>
+Inteligência Logística • PCP
+</p>
+
+</div>
+
+<div class="acoes">
+
+<button onclick="processar()">
+🚀 Processar Dados
+</button>
+
+<button onclick="exportarExcel()">
+📥 Exportar Excel
+</button>
+
+</div>
+
+</header>
+
+<!-- ================================= -->
+<!-- UPLOADS -->
+<!-- ================================= -->
+
+<section class="uploads">
+
+<div class="upload-card">
+
+<h3>
+📄 Acompanhamento de Pedidos
+</h3>
+
+<p>
+Arquivo exportado do acompanhamento.
+</p>
+
+<input
+type="file"
+id="arquivoPedidos"
+accept=".xlsx,.xls,.csv"
+/>
+
+</div>
+
+<div class="upload-card">
+
+<h3>
+📦 Relação das Master
+</h3>
+
+<p>
+Arquivo exportado do Metabase.
+</p>
+
+<input
+type="file"
+id="arquivoMaster"
+accept=".xlsx,.xls,.csv"
+/>
+
+</div>
+
+</section>
+
+<!-- ================================= -->
+<!-- KPIS -->
+<!-- ================================= -->
+
+<section class="kpis">
+
+<div class="kpi">
+<span>Pedidos</span>
+<h2 id="kpiTotal">0</h2>
+</div>
+
+<div class="kpi vermelho">
+<span>Sem Master</span>
+<h2 id="kpiSemMaster">0</h2>
+</div>
+
+<div class="kpi verde">
+<span>Com Master</span>
+<h2 id="kpiComMaster">0</h2>
+</div>
+
+<div class="kpi amarelo">
+<span>Master Antiga</span>
+<h2 id="kpiMasterAntiga">0</h2>
+</div>
+
+<div class="kpi azul">
+<span>Lojas</span>
+<h2 id="kpiLojas">0</h2>
+</div>
+
+<div class="kpi">
+<span>Produtos</span>
+<h2 id="kpiProdutos">0</h2>
+</div>
+
+</section>
+
+<!-- ================================= -->
+<!-- FILTROS -->
+<!-- ================================= -->
+
+<section class="filtros">
+
+<input
+type="text"
+id="fLoja"
+placeholder="🏪 Loja"
+/>
+
+<input
+type="text"
+id="fPedido"
+placeholder="📄 Pedido"
+/>
+
+<input
+type="text"
+id="fProduto"
+placeholder="📦 Produto"
+/>
+
+<select id="fSituacao">
+
+<option value="">
+Todas Situações
+</option>
+
+<option>
+🔴 Sem Master
+</option>
+
+<option>
+🟠 Master Antiga
+</option>
+
+<option>
+🟢 Com Master
+</option>
+
+</select>
+
+<button onclick="renderTabela()">
+Filtrar
+</button>
+
+</section>
+
+<!-- ================================= -->
+<!-- GRÁFICOS -->
+<!-- ================================= -->
+
+<section class="graficos">
+
+<div class="grafico-card">
+
+<h3>Status</h3>
+
 <canvas id="graficoStatus"></canvas>
+
+</div>
+
+<div class="grafico-card">
+
+<h3>Top Lojas</h3>
+
+<canvas id="graficoLojas"></canvas>
+
+</div>
+
+</section>
+
+<!-- ================================= -->
+<!-- RANKING -->
+<!-- ================================= -->
+
+<section class="ranking-card">
+
+<h3>
+🏆 Ranking de Lojas
+</h3>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Loja</th>
+<th>Ocorrências</th>
+</tr>
+
+</thead>
+
+<tbody id="rankingLojas">
+
+</tbody>
+
+</table>
+
+</section>
+
+<!-- ================================= -->
+<!-- RESULTADO -->
+<!-- ================================= -->
+
+<section class="resultado">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Loja</th>
+<th>Pedido</th>
+<th>Produto</th>
+<th>Descrição</th>
+<th>Qtd</th>
+<th>Master</th>
+<th>Dias</th>
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tbody">
+
+</tbody>
+
+</table>
+
+</section>
 
 <script src="js/excel.js"></script>
 <script src="js/processamento.js"></script>
@@ -25,5 +267,7 @@
 <script src="js/filtros.js"></script>
 <script src="js/exportacao.js"></script>
 <script src="js/app.js"></script>
+
 </body>
+
 </html>
