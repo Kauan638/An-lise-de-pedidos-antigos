@@ -24,11 +24,20 @@ async function processar(){
             "arquivoMaster"
         ).files[0];
 
-        if(!pedidosFile || !masterFile){
-
-            alert(
-                "Selecione os dois arquivos."
-            );
+const etiquetaFile =
+document.getElementById(
+    "arquivoEtiqueta"
+).files[0];
+        
+     if(
+    !pedidosFile ||
+    !masterFile ||
+    !etiquetaFile
+){
+         
+alert(
+    "Selecione os três arquivos."
+);
 
             return;
 
