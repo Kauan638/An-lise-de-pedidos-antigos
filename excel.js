@@ -195,12 +195,12 @@ async function carregarEtiquetas(file){
     const dados =
     await lerArquivo(file);
 
-    console.log(
-        "COLUNAS ETIQUETA:",
-        Object.keys(dados[0])
-    );
-
     return dados.map(r=>({
+
+        produto:
+        String(
+            r.SEQPRODUTO || ""
+        ).trim(),
 
         etiquetaMaster:
         String(
@@ -215,7 +215,6 @@ async function carregarEtiquetas(file){
     }));
 
 }
-
 // =====================================
 // DEBUG
 // =====================================
