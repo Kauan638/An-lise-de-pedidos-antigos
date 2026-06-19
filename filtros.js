@@ -26,103 +26,12 @@ function obterDadosFiltrados(){
     .trim();
 
     const situacao =
-document
-.getElementById("fSituacao")
-.value;
+    document
+    .getElementById("fSituacao")
+    .value;
 
-const dataInicio =
-document
-.getElementById("fDataInicio")
-.value;
-
-const dataFim =
-document
-.getElementById("fDataFim")
-.value;
-
-const cargaInicio =
-document
-.getElementById("fCargaInicio")
-.value;
-
-const cargaFim =
-document
-.getElementById("fCargaFim")
-.value;
-    
     return resultado.filter(item=>{
 
-let passouData = true;
-
-if(dataInicio || dataFim){
-
-    const dataPedido =
-    new Date(item.DataPedido);
-
-    if(dataInicio){
-
-        const inicio =
-        new Date(dataInicio);
-
-        if(dataPedido < inicio){
-            passouData = false;
-        }
-
-    }
-
-    if(dataFim){
-
-        const fim =
-        new Date(dataFim);
-
-        fim.setHours(
-            23,59,59,999
-        );
-
-        if(dataPedido > fim){
-            passouData = false;
-        }
-
-    }
-
-}
-
-let passouCarga = true;
-
-if(cargaInicio || cargaFim){
-
-    const dataCarga =
-    new Date(item.DataGeracaoCarga);
-
-    if(cargaInicio){
-
-        const inicio =
-        new Date(cargaInicio);
-
-        if(dataCarga < inicio){
-            passouCarga = false;
-        }
-
-    }
-
-    if(cargaFim){
-
-        const fim =
-        new Date(cargaFim);
-
-        fim.setHours(
-            23,59,59,999
-        );
-
-        if(dataCarga > fim){
-            passouCarga = false;
-        }
-
-    }
-
-}
-
-  
         return(
 
             item.Loja
@@ -147,20 +56,11 @@ if(cargaInicio || cargaFim){
             &&
 
             (
-    !situacao ||
-    item.Situacao ===
-    situacao
-)
+                !situacao ||
+                item.Situacao === situacao
+            )
 
-&&
-
-passouData
-
-&&
-
-passouCarga
-
-);
+        );
 
     });
 
