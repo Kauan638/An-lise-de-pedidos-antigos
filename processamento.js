@@ -246,26 +246,26 @@ function cruzarDados(
 
 function calcularKPIs(){
 
-    const semMaster =
-    resultado.filter(
-        x=>x.Situacao.includes(
-            "Sem Master"
-        )
-    ).length;
+   const semMaster =
+resultado.filter(
+    x=>(x.Situacao || "").includes(
+        "Sem Master"
+    )
+).length;
 
-    const comMaster =
-    resultado.filter(
-        x=>x.Situacao.includes(
-            "Com Master"
-        )
-    ).length;
+const comMaster =
+resultado.filter(
+    x=>(x.Situacao || "").includes(
+        "Com Master"
+    )
+).length;
 
-    const masterAntiga =
-    resultado.filter(
-        x=>x.Situacao.includes(
-            "Master Antiga"
-        )
-    ).length;
+const masterAntiga =
+resultado.filter(
+    x=>(x.Situacao || "").includes(
+        "Master Antiga"
+    )
+).length;
 
     const lojas =
     new Set(
