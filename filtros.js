@@ -259,6 +259,7 @@ function renderTabela(){
             <td>${item.Master || "-"}</td>
             <td>${item.DiasMaster}</td>
             <td>${item.Situacao}</td>
+            <td>${item.SituacaoEtiqueta || "-"}</td>
         </tr>
 
         `;
