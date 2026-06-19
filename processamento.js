@@ -12,6 +12,8 @@ async function processar(){
 
     try{
 
+        mostrarLoading();
+        
         const pedidosFile =
         document.getElementById(
             "arquivoPedidos"
@@ -37,11 +39,15 @@ async function processar(){
             pedidosFile
         );
 
+        atualizarLoading(25);
+        
         const masters =
         await carregarMasters(
             masterFile
         );
 
+        atualizarLoading(50);
+        
         cruzarDados(
             pedidos,
             masters
