@@ -228,7 +228,7 @@ mapaEtiquetas.get(
 
         }
 
-      resultado.push({
+     resultado.push({
 
     Loja:
     p.loja,
@@ -269,6 +269,9 @@ mapaEtiquetas.get(
     StatusMaster:
     statusMaster,
 
+    SituacaoEtiqueta:
+    situacaoEtiqueta,
+
     Localizacao:
     localizacao,
 
@@ -276,9 +279,6 @@ mapaEtiquetas.get(
     situacao
 
 });
-    });
-
-}
 
 // =====================================
 // KPIs
