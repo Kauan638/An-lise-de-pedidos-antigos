@@ -187,6 +187,31 @@ async function carregarMasters(file){
 }
 
 // =====================================
+// ETIQUETAS
+// =====================================
+
+async function carregarEtiquetas(file){
+
+    const dados =
+    await lerArquivo(file);
+
+    return dados.map(r=>({
+
+        etiquetaMaster:
+        String(
+            r.ETIQUETAMASTER || ""
+        ).trim(),
+
+        situacaoEtiqueta:
+        String(
+            r.SITUACAOETIQUETA || ""
+        ).trim()
+
+    }));
+
+}
+
+// =====================================
 // DEBUG
 // =====================================
 
