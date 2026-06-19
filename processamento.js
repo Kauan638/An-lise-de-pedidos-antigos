@@ -217,10 +217,21 @@ let situacaoEtiqueta =
             codigoMaster =
             master.master;
 
-situacaoEtiqueta =
-mapaEtiquetas.get(
-    codigoMaster
-) || "";
+if(codigoMaster){
+
+    situacaoEtiqueta =
+    mapaEtiquetasMaster.get(
+        codigoMaster
+    ) || "";
+
+}else{
+
+    situacaoEtiqueta =
+    mapaEtiquetasProduto.get(
+        p.produto
+    ) || "";
+
+}
             
             statusMaster =
             master.status;
