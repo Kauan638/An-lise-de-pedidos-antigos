@@ -100,6 +100,11 @@ console.log(
 );
 
 console.log(
+    "Etiquetas:",
+    etiquetas.length
+);
+        
+console.log(
     "Resultado:",
     resultado.length
 );
