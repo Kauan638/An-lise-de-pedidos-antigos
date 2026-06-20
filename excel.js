@@ -95,6 +95,11 @@ async function carregarPedidos(file){
     const dados =
     await lerArquivo(file);
 
+console.log(
+    "VALOR DA DESCARGA:",
+    dados[0].Desccarga
+);
+    
     console.log("PEDIDOS");
     console.log(dados[0]);
 
