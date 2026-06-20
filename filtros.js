@@ -2,6 +2,9 @@
 // FILTROS
 // =====================================
 
+let filtroSituacaoGlobal = "";
+let filtroEtiquetaGlobal = "";
+
 function obterDadosFiltrados(){
 
     const loja =
