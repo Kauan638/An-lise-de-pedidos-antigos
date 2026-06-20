@@ -354,3 +354,37 @@ function posProcessamento(){
     );
 
 }
+
+
+document
+.getElementById("arquivoPedidos")
+.addEventListener("change", function(){
+
+    document.getElementById(
+        "nomeArquivoPedidos"
+    ).innerHTML =
+    "✅ " + this.files[0].name;
+
+});
+
+document
+.getElementById("arquivoMaster")
+.addEventListener("change", function(){
+
+    document.getElementById(
+        "nomeArquivoMaster"
+    ).innerHTML =
+    "✅ " + this.files[0].name;
+
+});
+
+document
+.getElementById("arquivoEtiqueta")
+.addEventListener("change", function(){
+
+    document.getElementById(
+        "nomeArquivoEtiqueta"
+    ).innerHTML =
+    "✅ " + this.files[0].name;
+
+});
