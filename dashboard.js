@@ -7,6 +7,68 @@ let graficoLojas = null;
 let graficoEtiquetas = null;
 
 
+// =====================================
+// DASHBOARD PRINCIPAL
+// =====================================
+
+function atualizarDashboard(){
+
+    const total =
+    resultado.length;
+
+    const semMaster =
+    resultado.filter(
+        x => x.Situacao ===
+        "🔴 Sem Master"
+    ).length;
+
+    const comMaster =
+    resultado.filter(
+        x => x.Situacao ===
+        "🟢 Com Master"
+    ).length;
+
+    const masterAntiga =
+    resultado.filter(
+        x => x.Situacao ===
+        "🟠 Master Antiga"
+    ).length;
+
+    const lojas =
+    new Set(
+        resultado.map(x=>x.Loja)
+    ).size;
+
+    const produtos =
+    new Set(
+        resultado.map(x=>x.Produto)
+    ).size;
+
+    document.getElementById(
+        "kpiTotal"
+    ).innerText = total;
+
+    document.getElementById(
+        "kpiSemMaster"
+    ).innerText = semMaster;
+
+    document.getElementById(
+        "kpiComMaster"
+    ).innerText = comMaster;
+
+    document.getElementById(
+        "kpiMasterAntiga"
+    ).innerText = masterAntiga;
+
+    document.getElementById(
+        "kpiLojas"
+    ).innerText = lojas;
+
+    document.getElementById(
+        "kpiProdutos"
+    ).innerText = produtos;
+
+
     // =====================================
     // KPIs ETIQUETAS
     // =====================================
