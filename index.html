@@ -57,11 +57,9 @@
 <!-- UPLOADS -->
 <!-- ================================= -->
 
-<!-- ================================= -->
-<!-- UPLOADS -->
-<!-- ================================= -->
-  
 <section class="uploads">
+
+    <!-- PEDIDOS -->
 
     <div class="upload-card">
 
@@ -77,28 +75,37 @@
             Acompanhamento de Pedidos
         </span>
 
-      <label
-for="arquivoPedidos"
-class="upload-btn">
+        <label
+        for="arquivoPedidos"
+        class="upload-btn">
 
-📂 Selecionar Arquivo
+            📂 Selecionar Arquivo
 
-</label>
+        </label>
 
-<input
-type="file"
-id="arquivoPedidos"
-accept=".xlsx,.xls,.csv"
-class="file-hidden"/>
+        <input
+        type="file"
+        id="arquivoPedidos"
+        accept=".xlsx,.xls,.csv"
+        class="file-hidden"
+        onchange="
+        document.getElementById(
+        'nomeArquivoPedidos'
+        ).innerHTML =
+        '✅ ' + this.files[0].name">
 
-<div id="nomeArquivoPedidos"
-class="arquivo-selecionado">
+        <div
+        id="nomeArquivoPedidos"
+        class="arquivo-selecionado">
 
-Nenhum arquivo carregado
+            Nenhum arquivo carregado
 
-</div>        
-        
+        </div>
+
     </div>
+
+
+    <!-- MASTERS -->
 
     <div class="upload-card">
 
@@ -114,29 +121,37 @@ Nenhum arquivo carregado
             Relação de Masters
         </span>
 
-       <label
-for="arquivoMaster"
-class="upload-btn">
+        <label
+        for="arquivoMaster"
+        class="upload-btn">
 
-📂 Selecionar Arquivo
+            📂 Selecionar Arquivo
 
-</label>
+        </label>
 
-<input
-type="file"
-id="arquivoMaster"
-accept=".xlsx,.xls,.csv"
-class="file-hidden"/>
+        <input
+        type="file"
+        id="arquivoMaster"
+        accept=".xlsx,.xls,.csv"
+        class="file-hidden"
+        onchange="
+        document.getElementById(
+        'nomeArquivoMaster'
+        ).innerHTML =
+        '✅ ' + this.files[0].name">
 
-<div id="nomeArquivoMaster"
-class="arquivo-selecionado">
+        <div
+        id="nomeArquivoMaster"
+        class="arquivo-selecionado">
 
-Nenhum arquivo carregado
+            Nenhum arquivo carregado
 
-</div>
-        
-        
+        </div>
+
     </div>
+
+
+    <!-- ETIQUETAS -->
 
     <div class="upload-card">
 
@@ -152,54 +167,30 @@ Nenhum arquivo carregado
             Consulta Situação Etiquetas
         </span>
 
-       <label
-for="arquivoEtiqueta"
-class="upload-btn">
+        <label
+        for="arquivoEtiqueta"
+        class="upload-btn">
 
-📂 Selecionar Arquivo
+            📂 Selecionar Arquivo
 
-</label>
+        </label>
 
-<input
-type="file"
-id="arquivoEtiqueta"
-accept=".txt,.csv"
-class="file-hidden"/>
+        <input
+        type="file"
+        id="arquivoEtiqueta"
+        accept=".txt,.csv"
+        class="file-hidden"
+        onchange="
+        document.getElementById(
+        'nomeArquivoEtiqueta'
+        ).innerHTML =
+        '✅ ' + this.files[0].name">
 
-<div id="nomeArquivoEtiqueta"
-class="arquivo-selecionado">
+        <div
+        id="nomeArquivoEtiqueta"
+        class="arquivo-selecionado">
 
-Nenhum arquivo carregado
-
-</div>
-        
-        
-    </div>
-
-</section>
-
-<section class="loading-container">
-
-    <div
-    id="loadingBox"
-    class="loading-box">
-
-        <div class="loading-text">
-
-            Carregando arquivos...
-
-            <span id="loadingPercent">
-                0%
-            </span>
-
-        </div>
-
-        <div class="loading-bar">
-
-            <div
-            id="loadingFill"
-            class="loading-fill">
-            </div>
+            Nenhum arquivo carregado
 
         </div>
 
@@ -207,6 +198,7 @@ Nenhum arquivo carregado
 
 </section>
   
+
 <!-- ================================= -->
 <!-- KPIS -->
 <!-- ================================= -->
