@@ -218,50 +218,168 @@ grid-template-columns:
 }
 
 }
-/* ================================= */
-/* KPIS */
-/* ================================= */
+
+
+/* =====================================
+KPIs MODERNOS
+===================================== */
 
 .kpis{
+
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:15px;
+
+grid-template-columns:
+repeat(6,1fr);
+
+gap:18px;
+
 margin-bottom:25px;
+
 }
 
 .kpi{
-background:var(--card);
-padding:20px;
-border-radius:16px;
-border:1px solid var(--border);
+
+background:linear-gradient(
+180deg,
+#0f172a,
+#111c34
+);
+
+border:1px solid #1e293b;
+
+border-radius:18px;
+
+padding:18px;
+
+text-align:center;
+
+transition:.25s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.kpi:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+0 12px 30px rgba(
+0,0,0,.25
+);
+
+}
+
+.kpi-icon{
+
+font-size:28px;
+
+margin-bottom:10px;
+
 }
 
 .kpi span{
+
 display:block;
-font-size:13px;
-color:var(--muted);
+
+font-size:12px;
+
+font-weight:600;
+
+letter-spacing:1px;
+
+text-transform:uppercase;
+
+color:#94a3b8;
+
 margin-bottom:8px;
+
 }
 
 .kpi h2{
-font-size:32px;
+
+font-size:34px;
+
 font-weight:700;
+
+margin:0;
+
+color:#ffffff;
+
 }
 
-.kpi.verde{
-border-left:5px solid var(--green);
+/* PEDIDOS */
+
+.kpi-total{
+
+border-left:5px solid #3b82f6;
+
 }
 
-.kpi.azul{
-border-left:5px solid var(--blue);
+/* SEM MASTER */
+
+.kpi-sem-master{
+
+border-left:5px solid #ef4444;
+
 }
 
-.kpi.amarelo{
-border-left:5px solid var(--yellow);
+/* COM MASTER */
+
+.kpi-com-master{
+
+border-left:5px solid #22c55e;
+
 }
 
-.kpi.vermelho{
-border-left:5px solid var(--red);
+/* MASTER ANTIGA */
+
+.kpi-antiga{
+
+border-left:5px solid #f59e0b;
+
+}
+
+/* LOJAS */
+
+.kpi-lojas{
+
+border-left:5px solid #8b5cf6;
+
+}
+
+/* PRODUTOS */
+
+.kpi-produtos{
+
+border-left:5px solid #06b6d4;
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width:1200px){
+
+.kpis{
+
+grid-template-columns:
+repeat(3,1fr);
+
+}
+
+}
+
+@media(max-width:700px){
+
+.kpis{
+
+grid-template-columns:
+1fr;
+
+}
+
 }
 
 /* ================================= */
