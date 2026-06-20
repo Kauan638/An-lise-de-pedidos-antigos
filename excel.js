@@ -95,56 +95,15 @@ async function carregarPedidos(file){
     const dados =
     await lerArquivo(file);
 
-console.log("=== PEDIDOS ===");
-console.log(dados[0]);
-
-console.log(
-    "DESCARGA PEDIDO:",
-    dados[0].Desccarga
-    
-console.log(
-    "DESCARGA PRIMEIRO PEDIDO:",
-    dados[0].Desccarga
-);
-
-console.log(
-    "PRIMEIRO PEDIDO:",
-    dados[0]
-);
-    
-console.log(
-    "VALOR DA DESCARGA:",
-    dados[0].Desccarga
-);
-
-console.log(
-    "PRIMEIRA LINHA:",
-    dados[0]
-);
-    
-    console.log("PEDIDOS");
+    console.log("=== PEDIDOS ===");
     console.log(dados[0]);
 
-    alert(
-        JSON.stringify(
-            Object.keys(dados[0]),
-            null,
-            2
-        )
-    );
-
-    console.log("TODAS AS COLUNAS:");
-    console.log(Object.keys(dados[0]));
-
-    console.log("COLUNAS COM CARGA:");
     console.log(
-        Object.keys(dados[0]).filter(c =>
-            c.toUpperCase().includes("CARGA")
-        )
+        "DESCARGA PEDIDO:",
+        dados[0].Desccarga
     );
 
     return dados.map(r=>({
-
         loja:
         String(
             r.Nroempdestino || ""
