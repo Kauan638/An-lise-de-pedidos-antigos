@@ -95,10 +95,17 @@ async function carregarPedidos(file){
     const dados =
     await lerArquivo(file);
 
-    console.log("COLUNAS PEDIDOS");
+    console.log("TODAS AS COLUNAS:");
     console.log(Object.keys(dados[0]));
 
-    console.log("PRIMEIRA LINHA PEDIDOS");
+    console.log("COLUNAS COM CARGA:");
+    console.log(
+        Object.keys(dados[0]).filter(c =>
+            c.toUpperCase().includes("CARGA")
+        )
+    );
+
+    console.log("PRIMEIRA LINHA:");
     console.log(dados[0]);
 
     return dados.map(r=>({
