@@ -455,3 +455,123 @@ function atualizarRanking(){
     });
 
 }
+
+
+function atualizarGraficoEtiquetas(){
+
+    const aguardando =
+    resultado.filter(
+        x =>
+        (x.SituacaoEtiqueta || "")
+        .includes("Aguardando")
+    ).length;
+
+    const montagem =
+    resultado.filter(
+        x =>
+        (x.StatusMaster || "")
+        .includes("Em Montagem")
+    ).length;
+
+    const montadas =
+    resultado.filter(
+        x =>
+        (x.SituacaoEtiqueta || "")
+        .includes("Montada")
+    ).length;
+
+    const naoChecada =
+    resultado.filter(
+        x =>
+        (x.SituacaoEtiqueta || "")
+        .includes("Não Checada")
+    ).length;
+
+    const canceladas =
+    resultado.filter(
+        x =>
+        (x.SituacaoEtiqueta || "")
+        .includes("Cancelada")
+    ).length;
+
+    const ctx =
+    document.getElementById(
+        "graficoEtiquetas"
+    );
+
+    if(!ctx) return;
+
+    if(window.graficoEtiquetas){
+
+        window.graficoEtiquetas.destroy();
+
+    }
+
+    window.graficoEtiquetas =
+    new Chart(ctx,{
+
+        type:"doughnut",
+
+        data:{
+
+            labels:[
+
+                "Aguardando",
+                "Em Montagem",
+                "Montadas",
+                "Não Checada",
+                "Cancelada"
+
+            ],
+
+            datasets:[{
+
+                data:[
+
+                    aguardando,
+                    montagem,
+                    montadas,
+                    naoChecada,
+                    canceladas
+
+                ],
+
+                backgroundColor:[
+
+                    "#eab308",
+                    "#3b82f6",
+                    "#22c55e",
+                    "#64748b",
+                    "#ef4444"
+
+                ],
+
+                borderWidth:0
+
+            }]
+
+        },
+
+        options:{
+
+            responsive:true,
+
+            plugins:{
+
+                legend:{
+
+                    position:"bottom",
+
+                    labels:{
+                        color:"white"
+                    }
+
+                }
+
+            }
+
+        }
+
+    });
+
+}
