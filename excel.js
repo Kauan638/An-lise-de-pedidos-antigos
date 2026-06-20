@@ -203,13 +203,6 @@ async function carregarMasters(file){
     const dados=
     await lerArquivo(file);
 
-console.log("=== PEDIDOS ===");
-console.log(dados[0]);
-
-console.log(
-    "DESCARGA PEDIDO:",
-    dados[0].Desccarga
-);
     
     return dados.map(r=>({
 
