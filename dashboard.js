@@ -32,17 +32,10 @@ function atualizarDashboard(){
     ).length;
 
     document.getElementById("kpiLojas").innerText =
-    new Set(
-        resultado.map(x=>x.Loja)
-    ).size;
+    new Set(resultado.map(x=>x.Loja)).size;
 
     document.getElementById("kpiProdutos").innerText =
-    new Set(
-        resultado.map(x=>x.Produto)
-    ).size;
-
-
-    // KPIs ETIQUETAS
+    new Set(resultado.map(x=>x.Produto)).size;
 
     document.getElementById("kpiAguardando").innerText =
     resultado.filter(
@@ -74,11 +67,9 @@ function atualizarDashboard(){
         .includes("Cancelada")
     ).length;
 
-
     atualizarGraficoStatus();
     atualizarGraficoLojas();
     atualizarGraficoEtiquetas();
-
 }
 
 
@@ -96,13 +87,10 @@ function atualizarGraficoStatus(){
     if(graficoStatus)
         graficoStatus.destroy();
 
-    graficoStatus =
-    new Chart(ctx,{
-
+    graficoStatus = new Chart(ctx,{
         type:"doughnut",
 
         data:{
-
             labels:[
                 "Sem Master",
                 "Com Master",
@@ -110,21 +98,10 @@ function atualizarGraficoStatus(){
             ],
 
             datasets:[{
-
                 data:[
-
-                    resultado.filter(
-                        x=>x.Situacao==="🔴 Sem Master"
-                    ).length,
-
-                    resultado.filter(
-                        x=>x.Situacao==="🟢 Com Master"
-                    ).length,
-
-                    resultado.filter(
-                        x=>x.Situacao==="🟠 Master Antiga"
-                    ).length
-
+                    resultado.filter(x=>x.Situacao==="🔴 Sem Master").length,
+                    resultado.filter(x=>x.Situacao==="🟢 Com Master").length,
+                    resultado.filter(x=>x.Situacao==="🟠 Master Antiga").length
                 ],
 
                 backgroundColor:[
@@ -132,11 +109,8 @@ function atualizarGraficoStatus(){
                     "#22c55e",
                     "#f59e0b"
                 ]
-
             }]
-
         }
-
     });
 
 }
@@ -170,28 +144,18 @@ function atualizarGraficoLojas(){
     if(graficoLojas)
         graficoLojas.destroy();
 
-    graficoLojas =
-    new Chart(ctx,{
+    graficoLojas = new Chart(ctx,{
 
         type:"bar",
 
         data:{
-
-            labels:
-            ranking.map(x=>x[0]),
+            labels: ranking.map(x=>x[0]),
 
             datasets:[{
-
-                data:
-                ranking.map(x=>x[1]),
-
-                backgroundColor:
-                "#3b82f6"
-
+                data: ranking.map(x=>x[1]),
+                backgroundColor:"#3b82f6"
             }]
-
         }
-
     });
 
 }
@@ -204,17 +168,14 @@ function atualizarGraficoLojas(){
 function atualizarGraficoEtiquetas(){
 
     const ctx =
-    document.getElementById(
-        "graficoEtiquetas"
-    );
+    document.getElementById("graficoEtiquetas");
 
     if(!ctx) return;
 
     if(graficoEtiquetas)
         graficoEtiquetas.destroy();
 
-    graficoEtiquetas =
-    new Chart(ctx,{
+    graficoEtiquetas = new Chart(ctx,{
 
         type:"doughnut",
 
@@ -232,30 +193,11 @@ function atualizarGraficoEtiquetas(){
 
                 data:[
 
-                    resultado.filter(
-                        x=>(x.SituacaoEtiqueta || "")
-                        .includes("Aguardando")
-                    ).length,
-
-                    resultado.filter(
-                        x=>(x.StatusMaster || "")
-                        .includes("Em Montagem")
-                    ).length,
-
-                    resultado.filter(
-                        x=>(x.SituacaoEtiqueta || "")
-                        .includes("Montada")
-                    ).length,
-
-                    resultado.filter(
-                        x=>(x.SituacaoEtiqueta || "")
-                        .includes("Não Checada")
-                    ).length,
-
-                    resultado.filter(
-                        x=>(x.SituacaoEtiqueta || "")
-                        .includes("Cancelada")
-                    ).length
+                    resultado.filter(x=>(x.SituacaoEtiqueta || "").includes("Aguardando")).length,
+                    resultado.filter(x=>(x.StatusMaster || "").includes("Em Montagem")).length,
+                    resultado.filter(x=>(x.SituacaoEtiqueta || "").includes("Montada")).length,
+                    resultado.filter(x=>(x.SituacaoEtiqueta || "").includes("Não Checada")).length,
+                    resultado.filter(x=>(x.SituacaoEtiqueta || "").includes("Cancelada")).length
 
                 ],
 
@@ -266,11 +208,8 @@ function atualizarGraficoEtiquetas(){
                     "#64748b",
                     "#ef4444"
                 ]
-
             }]
-
         }
-
     });
 
 }
