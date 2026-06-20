@@ -141,7 +141,9 @@ async function carregarPedidos(file){
 r.Nrocarga || "",
 
 descCarga:
-r.Desccarga || "",
+String(
+    r.DESCCARGAEXPEDICAO || ""
+).trim(),
 
 dataGeracaoCarga:
 r.Dtahorgeracaocarga || ""
