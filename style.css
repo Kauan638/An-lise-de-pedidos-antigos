@@ -38,6 +38,7 @@ color:white;
 
 }
 
+
 /* ================================= */
 /* HEADER */
 /* ================================= */
@@ -50,29 +51,33 @@ justify-content:space-between;
 
 align-items:center;
 
-padding:28px 40px;
+padding:30px 45px;
 
-margin-bottom:30px;
+margin-bottom:35px;
 
 background:
 linear-gradient(
 135deg,
-rgba(15,23,42,.95),
-rgba(30,41,59,.85)
+rgba(5,15,40,.98),
+rgba(20,30,70,.90)
 );
 
-border:1px solid #1e40af;
+border:1px solid rgba(
+59,130,246,.25
+);
 
-border-radius:28px;
+border-radius:32px;
 
 position:relative;
 
 overflow:hidden;
 
 box-shadow:
-0 0 50px rgba(
-59,130,246,.15
+0 0 60px rgba(
+59,130,246,.10
 );
+
+backdrop-filter:blur(10px);
 
 }
 
@@ -102,6 +107,173 @@ box-shadow:
 0 0 20px #7c3aed;
 
 }
+
+.topo::before{
+
+content:"";
+
+position:absolute;
+
+right:-100px;
+
+top:-100px;
+
+width:300px;
+
+height:300px;
+
+background:
+radial-gradient(
+circle,
+rgba(124,58,237,.25),
+transparent 70%
+);
+
+pointer-events:none;
+
+}
+
+
+/* ================================= */
+/* HEADER PREMIUM */
+/* ================================= */
+
+.topo h1{
+
+margin:0;
+
+font-size:48px;
+
+font-weight:800;
+
+letter-spacing:-1px;
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+}
+
+.topo h1 span{
+
+background:
+linear-gradient(
+90deg,
+#3b82f6,
+#8b5cf6
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+.topo p{
+
+margin-top:8px;
+
+font-size:20px;
+
+color:#94a3b8;
+
+}
+
+.logo-box{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+width:70px;
+
+height:70px;
+
+border-radius:18px;
+
+background:
+linear-gradient(
+135deg,
+#1e3a8a,
+#111827
+);
+
+box-shadow:
+0 0 20px rgba(
+59,130,246,.25
+);
+
+font-size:32px;
+
+}
+
+/* ================================= */
+/* BOTÕES */
+/* ================================= */
+
+.acoes{
+
+display:flex;
+
+gap:15px;
+
+}
+
+.acoes button{
+
+padding:16px 28px;
+
+border:none;
+
+border-radius:16px;
+
+font-weight:700;
+
+font-size:15px;
+
+cursor:pointer;
+
+transition:.25s;
+
+color:white;
+
+}
+
+.acoes button:first-child{
+
+background:
+linear-gradient(
+90deg,
+#7c3aed,
+#3b82f6
+);
+
+box-shadow:
+0 0 25px rgba(
+124,58,237,.35
+);
+
+}
+
+.acoes button:last-child{
+
+background:
+rgba(15,23,42,.85);
+
+border:1px solid #334155;
+
+}
+
+.acoes button:hover{
+
+transform:translateY(-2px);
+
+}
+
 
 /* =====================================
 UPLOADS MODERNOS
@@ -697,46 +869,4 @@ background:linear-gradient(
 #22c55e
 );
 transition:.25s;
-}
-
-
-/* ========================= */
-/* HEADER PREMIUM */
-/* ========================= */
-
-.topo h1{
-
-margin:0;
-
-font-size:48px;
-
-font-weight:800;
-
-letter-spacing:-1px;
-
-}
-
-.topo h1 span{
-
-background:
-linear-gradient(
-90deg,
-#3b82f6,
-#8b5cf6
-);
-
--webkit-background-clip:text;
-
--webkit-text-fill-color:transparent;
-
-}
-
-.topo p{
-
-margin-top:8px;
-
-font-size:20px;
-
-color:#94a3b8;
-
 }
