@@ -197,7 +197,8 @@ async function carregarEtiquetas(file){
 
     const dados =
     await lerArquivo(file);
-
+console.log(dados[0]);
+    
     return dados.map(r=>({
 
         produto:
