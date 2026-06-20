@@ -9,13 +9,14 @@ function obterDadosFiltrados(){
 
     return resultado.filter(item=>{
 
-        const passouSituacao =
+       const passouSituacao =
 
-        !filtroSituacaoGlobal ||
+!filtroSituacaoGlobal ||
 
-        item.Situacao ===
-        filtroSituacaoGlobal;
-
+(item.Situacao || "")
+.includes(
+    filtroSituacaoGlobal
+);
         const passouEtiqueta =
 
         !filtroEtiquetaGlobal ||
