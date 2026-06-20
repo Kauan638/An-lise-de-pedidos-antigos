@@ -388,3 +388,54 @@ document
     "✅ " + this.files[0].name;
 
 });
+
+
+// =====================================
+// TEMA CLARO / ESCURO
+// =====================================
+
+function alternarTema(){
+
+    document.body.classList.toggle(
+        "tema-claro"
+    );
+
+    const claro =
+    document.body.classList.contains(
+        "tema-claro"
+    );
+
+    document.getElementById(
+        "btnTema"
+    ).innerHTML = claro
+    ? "🌙 Tema Escuro"
+    : "☀️ Tema Claro";
+
+    localStorage.setItem(
+        "tema",
+        claro ? "claro" : "escuro"
+    );
+
+}
+
+// Carregar tema salvo
+
+window.addEventListener("load",()=>{
+
+    const tema =
+    localStorage.getItem("tema");
+
+    if(tema==="claro"){
+
+        document.body.classList.add(
+            "tema-claro"
+        );
+
+        document.getElementById(
+            "btnTema"
+        ).innerHTML =
+        "🌙 Tema Escuro";
+
+    }
+
+});
